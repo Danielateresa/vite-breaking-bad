@@ -41,7 +41,7 @@ export default {
 <template>
 
   <AppHeader />
-  <AppMain :characters="characters" /><!--  passo i dati al componente -->
+  <AppMain />
 
 </template>
 

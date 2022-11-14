@@ -32,9 +32,11 @@ export default {
 
             <div class="character_box">
 
-                <h6>Found {{ store.characters.length }} characters</h6>
+                <h6>Found 62 characters</h6>
+
                 <div class="row row-cols-5 px-2 g-3">
-                    <CharacterItem :character="character" v-for="character in store.characters" />
+                    <CharacterItem :character="character" v-for="character in store.characters"
+                        v-show="store.characters.length === 62" />
 
                 </div>
             </div>
