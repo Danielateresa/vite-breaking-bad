@@ -11,7 +11,7 @@ export default {
 
     <!-- singola card -->
     <div class="col">
-        <div class="card border-0">
+        <div class="character_card border-0 text-center">
             <img :src="character.img" alt="">
             <h6>{{ character.name }}</h6>
             <div class="details text-muted fw-lighter">
@@ -26,16 +26,17 @@ export default {
 <style lang="scss" scoped>
 @use '../assets/scss/partials/variables' as*;
 
-.card {
+.character_card {
     background-color: $dark;
     padding: 1rem;
     border-radius: 0;
-
+    height: 100%;
 }
 
 h6 {
     color: $light;
     text-transform: uppercase;
+    margin-top: 1rem;
 }
 
 span {
