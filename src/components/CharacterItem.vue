@@ -1,6 +1,9 @@
 <script>
 export default {
     name: 'CharacterItem',
+    props: {
+        character: Object
+    }
 }
 </script>
 
@@ -9,11 +12,11 @@ export default {
     <!-- singola card -->
     <div class="col">
         <div class="card border-0">
-            <img src="" alt="">
-            <h6>walter white</h6>
+            <img :src="character.img" alt="">
+            <h6>{{ character.name }}</h6>
             <div class="details text-muted fw-lighter">
-                <span>Breaking Bad</span>
-                <span>Presumed dead</span>
+                <span>{{ character.category }}</span>
+                <span>{{ character.status }}</span>
             </div>
         </div>
     </div>

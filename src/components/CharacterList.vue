@@ -1,9 +1,13 @@
 <script>
 import CharacterItem from './CharacterItem.vue';
+import { store } from '../store.js'
 export default {
     name: 'CharacterList',
     components: {
         CharacterItem,
+    },
+    data() {
+        return { store, }
     }
 }
 
@@ -29,8 +33,9 @@ export default {
             <div class="character_box">
 
                 <h6>Found 62 characters</h6>
-                <div class="row p-2">
-                    <CharacterItem /> <!-- aggiungere v-for -->
+                <div class="row row-cols-5 p-2">
+                    <CharacterItem :character="character" v-for="character in store.characters" />
+
                 </div>
             </div>
 

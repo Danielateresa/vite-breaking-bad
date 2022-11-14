@@ -19,13 +19,19 @@ export default {
     callApi(url) {
       axios.get(url)
         .then(response => {
-          console.log(response);
-        })
 
+          this.store.characters = response.data; /* metto all'interno di store.characters i dati presi dall'api */
+          console.log(store.characters);
+        })
+        .catch(err => {
+          console.error(err.message);
+          this.store.error = err.message;
+        })
     }
   },
   mounted() {
     this.callApi(this.store.API_URL);
+
   }
 }
 
@@ -35,7 +41,7 @@ export default {
 <template>
 
   <AppHeader />
-  <AppMain />
+  <AppMain :characters="characters" /><!--  passo i dati al componente -->
 
 </template>
 
