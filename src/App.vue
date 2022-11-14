@@ -16,12 +16,13 @@ export default {
     }
   },
   methods: {
+    //chiamata Api per ottenere i dati
     callApi(url) {
       axios.get(url)
         .then(response => {
 
           this.store.characters = response.data; /* metto all'interno di store.characters i dati presi dall'api */
-          console.log(store.characters);
+          //console.log(this.store.characters);
         })
         .catch(err => {
           console.error(err.message);
@@ -30,7 +31,7 @@ export default {
     }
   },
   mounted() {
-    this.callApi(this.store.API_URL);
+    this.callApi(this.store.API_URL);//invocazione funzione di chiamata Api
 
   }
 }
