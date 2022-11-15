@@ -12,14 +12,14 @@ export default {
     data() {
         return {
             store,
-            selected: '',
+
         }
     },
     methods: {
         categorySelector() {
 
 
-            const url = `${this.store.API_URL}?category=${this.selected}`;
+            const url = `${this.store.API_URL}?category=${this.store.selected}`;
 
             axios.get(url).then(resp => {
 
@@ -40,9 +40,9 @@ export default {
 
     <main id="site_main">
         <div class="container">
-            <select v-model="selected" @change="categorySelector">
+            <select v-model="store.selected" @change="categorySelector">
                 <option value="">Select category</option>
-                <option value="Breaking Bad">Breaking Bad</option>
+                <option value="Breaking+Bad">Breaking Bad</option>
                 <option value="Better+Call+Saul">Better Call Saul</option>
 
             </select>
