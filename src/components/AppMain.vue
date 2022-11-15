@@ -25,8 +25,8 @@ export default {
 
                 console.log(resp);
 
-                this.store.characters = resp.data.results;
-
+                this.store.characters = resp.data;
+                console.log(store.characters);
             })
         }
     }
