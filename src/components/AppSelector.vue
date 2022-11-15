@@ -14,12 +14,18 @@ export default {
 
 <template>
 
-    <select v-model="store.selected" @change="$emit('searchData')">
-        <option disabled selected>Select category</option>
+    <select class="select form-select" v-model="store.selected" @change="$emit('searchData')">
+        <option value="">Select category</option>
         <option value="Breaking+Bad">Breaking Bad</option>
         <option value="Better+Call+Saul">Better Call Saul</option>
 
     </select>
-    <!-- /.dropdown -->
+    <!-- /select -->
 
 </template>
+
+<style lang="scss" scoped>
+select {
+    width: fit-content;
+}
+</style>

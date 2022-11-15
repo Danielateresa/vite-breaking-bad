@@ -28,8 +28,11 @@ export default {
         console.log(resp);
 
         this.store.characters = resp.data;
-        console.log(store.characters);
+        console.log(this.store.characters);
       })
+        .catch(err => {
+          console.log(err);
+        })
     }
   },
   mounted() {
@@ -45,11 +48,9 @@ export default {
 <template>
 
   <AppHeader />
-  <AppSelector @searchData="categorySelector" />
-  <AppMain />
 
+  <div class="container">
+    <AppSelector @searchData="categorySelector" />
+    <AppMain />
+  </div>
 </template>
-
-<style lang="scss" scoped>
-
-</style>
