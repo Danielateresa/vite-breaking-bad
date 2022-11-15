@@ -12,24 +12,26 @@ export default {
     data() {
         return {
             store,
+            selected: '',
         }
     },
     methods: {
         categorySelector() {
 
 
-            console.log(url);
+            const url = `${this.store.API_URL}?category=${this.selected}`;
 
             axios.get(url).then(resp => {
 
                 console.log(resp);
 
-                this.store.API_URL_Better = resp.data.results;
+                this.store.characters = resp.data.results;
 
             })
-        },
+        }
     }
 }
+
 
 </script>
 
@@ -38,10 +40,10 @@ export default {
 
     <main id="site_main">
         <div class="container">
-            <select>
+            <select v-model="selected" @change="categorySelector">
                 <option value="">Select category</option>
                 <option value="Breaking Bad">Breaking Bad</option>
-                <option value="Better Call Saul">Better Call Saul</option>
+                <option value="Better+Call+Saul">Better Call Saul</option>
 
             </select>
             <!-- /.dropdown -->
