@@ -6,4 +6,5 @@ export const store = reactive({
     API_URL: ' https://www.breakingbadapi.com/api/characters',
     error: null,
     characters: null,
+    API_URL_Better: 'https://www.breakingbadapi.com/api/characters?category=Better+Call+Saul',
 })

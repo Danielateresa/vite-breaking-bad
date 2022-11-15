@@ -12,7 +12,7 @@ export default {
     <!-- singola card -->
     <div class="col">
         <div class="character_card border-0 text-center">
-            <img :src="character.img" alt="">
+            <img :src="character.img" alt="character.name">
             <h6>{{ character.name }}</h6>
             <div class="details text-muted fw-lighter">
                 <span>{{ character.category }}</span>

@@ -1,13 +1,13 @@
 <script>
 import CharacterItem from './CharacterItem.vue';
-import AppDropdown from './AppDopdown.vue';
+
 import { store } from '../store.js'
 
 export default {
     name: 'CharacterList',
     components: {
         CharacterItem,
-        AppDropdown,
+
     },
     data() {
         return { store, }
@@ -19,22 +19,18 @@ export default {
 <template>
 
     <section class="character mt-4">
-        <div class="container">
 
-            <AppDropdown />
+        <div class="character_box">
 
-            <div class="character_box">
+            <h6>Found 62 characters</h6>
 
-                <h6>Found 62 characters</h6>
+            <div class="row row-cols-5 px-2 g-3">
+                <CharacterItem :character="character" v-for="character in store.characters"
+                    v-show="store.characters.length === 62" />
 
-                <div class="row row-cols-5 px-2 g-3">
-                    <CharacterItem :character="character" v-for="character in store.characters"
-                        v-show="store.characters.length === 62" />
-
-                </div>
             </div>
-
         </div>
+
     </section>
     <!-- /.character -->
 
