@@ -2,6 +2,7 @@
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
+import AppSelector from './components/AppSelector.vue';
 import { store } from './store.js';
 
 export default {
@@ -9,6 +10,7 @@ export default {
   components: {
     AppHeader,
     AppMain,
+    AppSelector,
   },
   data() {
     return {
@@ -16,24 +18,25 @@ export default {
     }
   },
   methods: {
-    //chiamata Api per ottenere i dati
-    callApi(url) {
-      axios.get(url)
-        .then(response => {
+    categorySelector() {
 
-          this.store.characters = response.data; /* metto all'interno di store.characters i dati presi dall'api */
-          //console.log(this.store.characters);
-        })
-        .catch(err => {
-          console.error(err.message);
-          this.store.error = err.message;
-        })
+      const selected = this.store.selected;
+      const url = `${this.store.API_URL}?category=${selected}`;
+
+      axios.get(url).then(resp => {
+
+        console.log(resp);
+
+        this.store.characters = resp.data;
+        console.log(store.characters);
+      })
     }
   },
   mounted() {
-    this.callApi(this.store.API_URL);//invocazione funzione di chiamata Api
+    this.categorySelector(this.store.API_URL);//invocazione funzione di chiamata Api
 
-  }
+  },
+
 }
 
 
@@ -42,6 +45,7 @@ export default {
 <template>
 
   <AppHeader />
+  <AppSelector @searchData="categorySelector" />
   <AppMain />
 
 </template>
