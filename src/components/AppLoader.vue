@@ -13,7 +13,7 @@ export default {
 }
 
 <template>
-    <div class="container text-center mt-5" v-show="store.characters < 62">
+    <div class="container text-center mt-5" v-show="store.characters == 0">
         <h1>Attendi il caricamento...</h1>
     </div>
 </template>
