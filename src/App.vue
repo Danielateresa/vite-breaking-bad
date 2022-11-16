@@ -28,6 +28,7 @@ export default {
         console.log(resp);
 
         this.store.characters = resp.data;
+        this.store.loading = false;
         console.log(this.store.characters);
       })
         .catch(err => {
