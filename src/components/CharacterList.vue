@@ -11,6 +11,11 @@ export default {
     },
     data() {
         return { store, }
+    },
+    computed: {
+        Results() {
+            return this.store.characters.length
+        }
     }
 }
 
@@ -22,7 +27,7 @@ export default {
 
         <div class="character_box">
 
-            <h6>Found 62 characters</h6>
+            <h6 v-if="store.characters !== null">Found {{ Results }} characters</h6>
 
             <div class="row row-cols-5 px-2 g-3">
                 <CharacterItem :character="character" v-for="character in store.characters" />
